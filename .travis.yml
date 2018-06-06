@@ -1,0 +1,14 @@
+env:
+  global:
+    - GH_REF: github.com/istobran/istobran.github.io.git
+    - secure: d0Z5S5uOtyKbFcREXJbS7Uhc+/Vle2eEMoqowOqYyTqCCYnkrVKrDfl0RrL6O8c18vjzJS02fsi6kASkhlk9dXeLUOOMZgS3ym3hnAs1Mg/MV+D3T/6NZGf5R5iSj+YI7izAjAeNgBj5qN4AenyB85qyPyny1KZSNf9hDoIjPKokgKzbAieTVvBTVny9HJLeBGUQfwN08BfWw1J46LgpnS51zOv3Zen2kQnOsf4MaaGqaonRkO1Tf9yoC0q3FkgxtG5YB3hKNnXk27xXFp4pM4NZQmhwQK/ic4Feo4YPbTeC9tbfe89/oYMNCvmtvrn6lfiTQy7CakAn2jbK/tVyzQxqsIAH4O3765j2bAkzoa2623dBAokyApVtPe+C7+KNSWrSqhEpcpML8shcZj48cbkBNn3qPOR49SW8LMMlED3Bkr+Is/ib5J2bd4ysnhj3jNIGN4KTjSiQJyXiOTcltAIS69mAHyJ6pj6sSY06XEwyvrKxCutNr9706avxkkk1SfQB8RkQ5IlVkoxG2DeZMQln6F4S5LHc5OXLrN7bHafdOJbZ2CNuvmzCWl/byjixUWUq/3M87dY0o+mT9tH2oWPzaryzqx5BdojYUQvtjngWSU2P8SuvJrIVMIaT7I7PpU6L6D6BJPp6a/Qk31nQpOKV1wprwgiNwEj6oM+W+7A=
+
+install:
+  - npm install
+before_script:
+  - npm install -g hexo-cli
+  - git config --global user.name 'Automatic deploy via Travis CI'
+  - git config --global user.email 'i@bangz.me'
+  - sed -i "s~git@github.com:istobran/istobran.github.io.git~https://${GH_TOKEN}:x-oauth-basic@${GH_REF}~" _config.yml
+script:
+  - hexo deploy
