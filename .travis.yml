@@ -15,4 +15,5 @@ before_script:
   - git config --global user.email 'i@bangz.me'
   - sed -i "s~git@github.com:istobran/istobran.github.io.git~https://${GH_TOKEN}:x-oauth-basic@${GH_REF}~" _config.yml
 script:
+  - hexo generate
   - hexo deploy
