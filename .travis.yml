@@ -10,6 +10,7 @@ node_js:
 cache:
   directories:
   - node_modules # NPM packages
+  - $(npm config get prefix)/lib/node_modules # global NPM packages
 
 git:
   depth: 1
