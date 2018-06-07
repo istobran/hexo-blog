@@ -17,8 +17,9 @@ before_script:
   - git config --global user.email 'i@bangz.me'
   - sed -i "s~git@github.com:istobran/istobran.github.io.git~https://${GH_TOKEN}@${GH_REF}~" _config.yml
 script:
-#  - git submodule init
-#  - git submodule update
+  - git submodule init
+  - git submodule update
+  - mv next_config.yml themes/next/_config.yml
   - hexo clean && hexo generate
 after_success:
   - hexo deploy
