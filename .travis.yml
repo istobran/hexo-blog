@@ -20,6 +20,7 @@ script:
   - git submodule init
   - git submodule update
   - mv next_config.yml themes/next/_config.yml
+  - ls -alhF themes/next/source/lib
   - hexo clean && hexo generate
 after_success:
   - hexo deploy
