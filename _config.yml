@@ -101,3 +101,9 @@ pwa:
       - pattern: !!js/regexp /\//
         strategy: networkFirst
   priority: 5
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
