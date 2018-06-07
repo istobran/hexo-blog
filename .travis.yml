@@ -21,6 +21,7 @@ script:
   - mv next_config.yml themes/next/_config.yml
   - mv source/lib/canvas-nest themes/next/source/lib/
   - mv source/lib/needsharebutton themes/next/source/lib/
+  - mv source/lib/pace themes/next/source/lib/
   - ls -alhF themes/next/source/lib
   - hexo clean && hexo generate
 after_success:
