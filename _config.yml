@@ -112,3 +112,9 @@ sitemap:
   path: sitemap.xml 
 baidusitemap:
   path: baidusitemap.xml
+
+nofollow:
+    enable: true
+    exclude:
+    - bangz.me
+    - hexo.bangz.me
