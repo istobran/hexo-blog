@@ -118,3 +118,9 @@ nofollow:
     exclude:
     - bangz.me
     - hexo.bangz.me
+
+
+tag_generator:
+  per_page: 10
+category_generator:
+  per_page: 10
