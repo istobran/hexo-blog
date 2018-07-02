@@ -9,7 +9,7 @@ tags: [javascript, ECMAScript]
 现在出来写前端有一段时间了，现在来回头看看，当初大学刚学搞前端的时候，为了快速适应新的语言，直接看后面的内容去了，跳过了基本数据类型的介绍，想当然的觉得 javascript 的数据类型应该也跟其他弱类型语言差不了太多，从而忽略了基本数据类型上的细节。最近随着对 js 语言了解和应用的加深，发现 js 的基本数据类型里面真的大有文章，甚至有不少的语言设计缺陷在里面。所以我打算专门写一篇关于基本数据类型的文章，专门来谈谈 js 在基本数据类型上的这些设计和缺陷。
 <!-- more -->
 
-# javascript 的诞生背景
+# 1. javascript 的诞生背景
 
 要说 javascript 的设计缺陷，我觉得不得不先谈下 js 诞生的背景，据说 javascript 的作者 [Brendan Eich](https://zh.wikipedia.org/wiki/%E5%B8%83%E8%98%AD%E7%99%BB%C2%B7%E8%89%BE%E5%85%8B) 在设计和实现它的时候，总共加起来居然只花了十天的时间。。。
 
@@ -19,7 +19,7 @@ tags: [javascript, ECMAScript]
 
 作为一个 js 程序员，必须时时刻刻都要清楚牢记这些缺陷，在写代码的时候要尽可能地随时避开这些坑，这样子我们才能写出更加健壮，稳定，不坑自己的代码。
 
-# 基础数据类型表
+# 2. 基础数据类型表
 
 首先必须要明确的一点是 javascript 这门语言根据 [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-data-types-and-values) 标准的定义，只有 7 种数据类型，它们分别是：
 
@@ -37,7 +37,7 @@ tags: [javascript, ECMAScript]
 
 其他什么 Array, Function, RegExp 等的都是 Object 的子类。
 
-# typeof 操作符上的问题
+# 3. typeof 操作符上的问题
 
 我们先来看一个 [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/#sec-typeof-operator) 中规范的表格：
 
@@ -58,7 +58,7 @@ Object (non-standard exotic and does not implement [[Call]]) | Implementation-de
 
 这个表格第一眼看过去会发现规范中存在着至少两个问题：
 
-## 1. typeof null 的值为 "object"
+## 3.1. typeof null 的值为 "object"
 
 前面说好的 null 是单独的一种数据类型，为什么 typeof null 又返回了 "object" 呢？？？
 
@@ -69,7 +69,7 @@ Object (non-standard exotic and does not implement [[Call]]) | Implementation-de
 这个问题就是前面所说的无法修改的设计缺陷，返回错误也拿它没办法，用户体量实在太庞大了，曾经有提案 typeof null === 'null'. 但提案被拒绝
 [harmony:typeof_null [ES Wiki]](http://wiki.ecmascript.org/doku.php?id=harmony%3atypeof_null)
 
-## 2. 为什么要多出个 "function" 类型出来
+## 3.2. 为什么要多出个 "function" 类型出来
 
 难道函数也要单独算一种类型？这跟前面基本数据类型的定义又对不上了。
 
@@ -88,7 +88,7 @@ Object (non-standard exotic and does not implement [[Call]]) | Implementation-de
 - 对于 null ，返回 object 类型。
 - 对于 function 返回  function 类型。
 
-## 3. "number" 类型中的特殊值
+## 3.3 "number" 类型中的特殊值
 
 对于 NaN 和 Infinity 这两个特殊值，typeof 遇到他们都会返回 number
 
@@ -116,7 +116,7 @@ function isNumber(val) {
 }
 ```
 
-# instanceof 操作符上的问题
+# 4. instanceof 操作符上的问题
 
 关于 instanceof 这个操作符，可以在 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 上看到它的定义：
 
@@ -138,7 +138,7 @@ console.log(adog instanceof Animal);   // 返回 true
 
 平时这样子正常使用它是感觉不出来有问题的，然而，当遇到下面这些情况的时候，就需要注意了。
 
-## 1. 当页面中存在一个或多个 frame 的时候
+## 4.1. 当页面中存在一个或多个 frame 的时候
 
 ```javascript
 [] instanceof window.frames[0].Array
@@ -148,7 +148,7 @@ console.log(adog instanceof Animal);   // 返回 true
 
 这在跨 frame 传递数据对象的时候，需要注意的一个问题。
 
-## 2. 一些相对特殊的判断
+## 4.2. 一些相对特殊的判断
 
 ```javascript
 Object instanceof Object    // true
@@ -199,7 +199,7 @@ function instance_of(L, R) {//L 表示左表达式，R 表示右表达式
 
 左侧表达式一开始就为 Function.prototype 了，这样子的话左侧表达式的原型链在向上查找的过程中就找不到 Dog.prototype 了，结果自然返回的是 false。
 
-## 3. 关于原始类型的包装类
+## 4.3. 关于原始类型的包装类
 
 对于四个原始类型的包装类，Number, Boolean, String, Symbol 返回 false 的原因会有所不同，我们来看下面一个例子：
 
@@ -223,7 +223,7 @@ instance_of(str, String);   // true
 
 换句话说，原始数据类型本身是根本没有 \_\_proto\_\_ 这个对象属性的，在直接使用 instanceof 操作符的时候，js 运行环境并不会自动调起装箱过程，原始数据类型也并没有 [[Prototype]] 属性，所以它的返回的是 false。
 
-# 关于 null 和 undefined
+# 5. 关于 null 和 undefined
 
 javascript 有个非常独特的设计，就是 null 和 undefined 同时存在于这个语言中，这使得这门语言可以有两种表示空值的方法，这两个空值在使用过程中极其相似，比如
 ```javascript
@@ -240,7 +240,7 @@ undefined == null
 ```
 上面相等运算符甚至直接返回 true，很多开发者在实际开发中到底选择哪种也是随心所欲，根本没有去在乎过里面的区别，不过热衷于探索的我还是认为需要深究一下，它们之间究竟有什么区别呢？咱还是来看看定义吧。
 
-## 1. 这两者在定义上的区别
+## 5.1. 这两者在定义上的区别
 
 - `null`，表示一个“无”的对象
 - `undefined`，表示一个“无”的原始值
@@ -281,7 +281,7 @@ console.log(name); //null
   2. undefined 在转换为数字的时候会被转换为 NaN
   3. typeof undefined 会返回的是 "undefined"
 
-## 2. 同时存在的历史原因
+## 5.2. 同时存在的历史原因
 
 虽然我们得到了前面的规律，也可以看出来确实存在一些区别，可是这些区别直观的看过去它们实际上都是些无关痛痒的区别。按理说，这门语言其实只要一个空值就行了，两个空值在很多时候都作用重叠了，它为什么要这样子设计呢？
 
@@ -299,7 +299,7 @@ console.log(name); //null
 
 可见，undefined 是在 null 之后设计的，设计它的本意是希望能够补全 null 的不足，然而当真正这么实践的时候，却发现两个空值的作用和含义基本一致，当初只需要改进 null 值就好了，根本不需要多设计一个空值出来。
 
-## 3. 二者的缺陷
+## 5.3. 二者的缺陷
 
 即使 js 发展到了今天，其实不论是 null 还是 undefined，它们二者仍然存在着各自本身的缺陷。
 
@@ -350,7 +350,7 @@ VM122:1 Uncaught SyntaxError: Unexpected token null
 
 所以，要想获得唯一准确的 undefined 值，而不是想借用 undefined 变量的话，得走一条弯路：去构造一个 undefined 值，这时候，js 的一个老古董 `void` 关键字就派上用场了。
 
-## 4. 巧用 void 关键字
+## 5.4. 巧用 void 关键字
 
 对于这个关键字，其实我们并不陌生，我们以前经常会见到 `javascript:void(0);` 这种用法，它与 `<a href="#">link</a>` 的区别是后者在点击了之后会跳到页面的最顶部去，改成用 `<a href="javascript:void(0);">link</a>` 就可以避免这个问题。
 
@@ -371,7 +371,7 @@ void function(){ console.log("you are so useless?"); }
 var scheduleFlush = void 0;
 ```
 
-# 利用 [[Class]] 精确判断数据类型
+# 6. 利用 [[Class]] 精确判断数据类型
 
 看过了前面 typeof 让人失望的表现之后，再来看看我们到底应该如何稳妥的判断数据类型，目前来说，要检测基本数据类型和内置对象，最好的方法是使用 `toString` 函数来进行判断。
 
