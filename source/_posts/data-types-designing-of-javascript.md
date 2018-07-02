@@ -399,7 +399,7 @@ toString.call(null);        // "[object Null]"
 toString.call(undefined);   // "[object Undefined]"
 ```
 
-可见 toString 函数几乎所有的内置类型都可以返回预期的正确结果，而且由于返回值是字符串，也可以用于解决前面所提到的跨 frame 判断数据类型的问题。
+可见 toString 函数几乎所有的内置类型都可以返回预期的正确结果，而且由于返回值是字符串，也可以用于解决前面所提到的跨 frame 判断数据类型的问题，这几乎是最理想的判断数据类型的方法了。
 
 不过这里值得一提的是，基本数据类型 number, boolean, string, symbol 在调用 toString 这个函数的时候，也是用了包装类来进行隐式自动装箱的，所以它们返回的是首字母大写的 Number, Boolean, String, Symbol。
 
