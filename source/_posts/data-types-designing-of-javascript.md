@@ -1,8 +1,8 @@
 ---
-title: javascript 基本数据类型中的那些坑
+title: 细说 javascript 的数据类型
 date: 2018-06-14 12:00:26
 categories: 技术研究
-urlname: data-types-designing-issues-of-javascript
+urlname: data-types-designing-of-javascript
 tags: [javascript, ECMAScript]
 ---
 
