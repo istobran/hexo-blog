@@ -88,7 +88,7 @@ Object (non-standard exotic and does not implement [[Call]]) | Implementation-de
 - 对于 null ，返回 object 类型。
 - 对于 function 返回  function 类型。
 
-## 3.3 "number" 类型中的特殊值
+## 3.3. "number" 类型中的特殊值
 
 对于 NaN 和 Infinity 这两个特殊值，typeof 遇到他们都会返回 number
 
