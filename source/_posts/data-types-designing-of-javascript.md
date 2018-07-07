@@ -418,3 +418,33 @@ toString.call(new Dog())   // [object Object]
 ```
 
 所以如果你要判断的是基本数据类型或 JavaScript 内置对象，推荐使用 `toString`，如果要判断的时自定义对象类型，还是得使用 `instanceof` 操作符。
+
+# 7. 弱相等运算符在判断时的类型转换
+
+说到这个，不得不提一个经典的例子
+    []==![]   // true
+
+这个例子按照常识，右边的 [] 是 Object 类型，在 `!` 运算符取反后应该等于 false，而左边的 [] 是 Object，所有的 Object 应该都会被转成 true，所以 true == false 返回的应该是 false 才对，但是怎么就偏偏返回了个 true 呢？
+
+说到底，还是对这个运算符的了解不够深造成的，对 == 运算符运算过程的理解太想当然了，其实这个运算符真正的内部执行过程是这样的：
+
+    [] == ![]
+    ==> [] == false
+    ==> [] == ToNumber(false)
+    ==> [] == 0
+    ==> ToPrimitive([]) == 0
+    ==> "" == 0
+    ==> ToNumber("") == 0
+    ==> 0 == 0
+    ==> true
+
+至于到底为什么会这样子算，可以详细看看[这篇文章](https://github.com/jawil/blog/issues/1)，简单来说就是根据 ECMA 规范的定义，这个运算符会在内部不断的做类型转换。它的转换规则是这样的：
+
+![运算规则图](https://camo.githubusercontent.com/af251d0062891ec9d9ff4b9dc7886b4522c743d0/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f61363630636162326779316663796a666d776330336a323078733067796a7630)
+
+  - null == undefined 为 true，且它俩与所有其他值比较的结果都是false。
+  - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型
+  - String 类型与 Boolean 类型进行运算时，两边都会先调用 ToNumber 函数转换为 Number 类型
+  - Number 与 String/Boolean 类型进行运算时，String/Boolean 类型的一方会先调用 ToNumber 函数转换为 Number 类型
+
+通过这个转换规则就可以很容易解释前面为什么 `[] == ![]` 的结果为 true 了
