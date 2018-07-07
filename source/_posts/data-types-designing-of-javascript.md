@@ -446,7 +446,7 @@ toString.call(new Dog())   // [object Object]
 ![运算规则图](https://camo.githubusercontent.com/af251d0062891ec9d9ff4b9dc7886b4522c743d0/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f61363630636162326779316663796a666d776330336a323078733067796a7630)
 
   - null == undefined 为 true，且它俩与所有其他值比较的结果都是false。
-  - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型
+  - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型（内部会调用 valueOf 或 toString）
   - String 类型与 Boolean 类型进行运算时，两边都会先调用 ToNumber 函数转换为 Number 类型
   - Number 与 String/Boolean 类型进行运算时，String/Boolean 类型的一方会先调用 ToNumber 函数转换为 Number 类型
 
