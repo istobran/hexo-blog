@@ -422,7 +422,10 @@ toString.call(new Dog())   // [object Object]
 # 7. 弱相等运算符在判断时的类型转换
 
 说到这个，不得不提一个经典的例子
-    []==![]   // true
+
+```javascript
+[]==![]   // true
+```
 
 这个例子按照常识，右边的 [] 是 Object 类型，在 `!` 运算符取反后应该等于 false，而左边的 [] 是 Object，所有的 Object 应该都会被转成 true，所以 true == false 返回的应该是 false 才对，但是怎么就偏偏返回了个 true 呢？
 
