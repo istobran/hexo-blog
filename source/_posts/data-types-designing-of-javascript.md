@@ -443,7 +443,7 @@ toString.call(new Dog())   // [object Object]
 
 至于到底为什么会这样子算，可以详细看看[这篇文章](https://github.com/jawil/blog/issues/1)，简单来说就是根据 ECMA 规范的定义，这个运算符会在内部不断的做类型转换。它的转换规则是这样的：
 
-![运算规则图](https://camo.githubusercontent.com/af251d0062891ec9d9ff4b9dc7886b4522c743d0/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f61363630636162326779316663796a666d776330336a323078733067796a7630)
+![运算规则图](/images/data-transformation-of-abstract-equality-omparison.jpeg)
 
   - null == undefined 为 true，且它俩与所有其他值比较的结果都是false。
   - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型（内部会调用 valueOf 或 toString）
