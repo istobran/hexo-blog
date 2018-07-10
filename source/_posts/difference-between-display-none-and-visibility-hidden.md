@@ -25,6 +25,7 @@ display:none 和 visibility: hidden 都是 CSS 中用于隐藏元素的属性，
 
 参考资料：
 - [What is DOM reflow?](https://stackoverflow.com/questions/27637184/what-is-dom-reflow/27637245#27637245)
+- [What forces layout / reflow](https://gist.github.com/paulirish/5d52fb081b3570c81e3a)
 - [display: none;与visibility: hidden;的区别](https://blog.csdn.net/crystal6918/article/details/77017487)
 - [回流、重绘及其优化](https://juejin.im/post/5ad815df6fb9a045cb6d1fb4)
 - [浏览器中的回流，重绘](https://juejin.im/post/5ae977da518825673446d92d)
