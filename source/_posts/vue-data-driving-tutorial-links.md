@@ -18,6 +18,11 @@ categories: 技术研究
 
 实现从 VDOM 到 DOM：
 - [Vue 2.0 的 virtual-dom 实现简析](https://github.com/DDFE/DDFE-blog/issues/18)
+- [Vue2.1.7源码学习](http://hcysun.me/2017/03/03/Vue%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/?nsukey=uNLdASBFj%2FX10MlVD2RJX77Wnt13nx%2FH6ZVE1t65sDrd02q9RSH6MjRyIoAYE9jBDbkUWtjTlTEDKaox7OTe%2FrjTXOZNHNQ%2Fhbuptv0Gh%2BTnPWuM6Gz23NfBcXVHH98iRRWmVzvD4S64LQ37%2BspyYUVNC9%2Bzt7UOB3145ltgz5k%3D#%E6%B3%A8%E9%87%8D%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6%EF%BC%8C%E4%BB%8E%E5%AE%8F%E8%A7%82%E5%88%B0%E5%BE%AE%E8%A7%82)
+
+    一、createElement(): 用 JavaScript对象(虚拟树) 描述 真实DOM对象(真实树)<br>
+    二、diff(oldNode, newNode) : 对比新旧两个虚拟树的区别，收集差异<br>
+    三、patch() : 将差异应用到真实DOM树
 
 监听 DOM 表单元素变化：
 - [Vue.js双向绑定的实现原理](https://www.cnblogs.com/kidney/p/6052935.html)
