@@ -1,5 +1,5 @@
 ---
-title: display: none 和 visibility: hidden的区别
+title: 'display: none 和 visibility: hidden的区别'
 urlname: difference-between-display-none-and-visibility-hidden
 date: 2018-07-10 14:37:56
 categories: 技术研究
