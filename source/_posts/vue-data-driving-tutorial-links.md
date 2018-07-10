@@ -2,13 +2,15 @@
 title: Vue 数据驱动原理教程链接集合
 date: 2018-07-10 12:34:05
 urlname: vue-data-driving-tutorial-links
-tags: [javascript, 前端, vue]
+tags: [javascript, 前端, Vue]
 categories: 技术研究
 ---
 
 文档：
 - [Vue 技术揭秘](https://github.com/ustbhuangyi/vue-analysis)
 - [剖析Vue实现原理 - 如何实现双向绑定mvvm](https://github.com/DMQ/mvvm)
+
+<!-- more -->
 
 监听数据变化：
 - [VUE2.0如何追踪数据变化？](https://www.jianshu.com/p/a86a9a377c85)
