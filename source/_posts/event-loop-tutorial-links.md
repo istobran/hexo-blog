@@ -6,6 +6,7 @@ categories: 技术研究
 tags: [javascript, 前端, ECMAScript]
 ---
 
+- [深入探究 eventloop 与浏览器渲染的时序问题](https://juejin.im/entry/596d78ee6fb9a06bb752475c)
 - [JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
 - [Event Loop的规范和实现](https://zhuanlan.zhihu.com/p/33087629)
 - [深入理解js事件循环机制（Node.js篇）](http://lynnelv.github.io/js-event-loop-nodejs)
