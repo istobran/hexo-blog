@@ -8,7 +8,7 @@ tags: [CSS3, HTML5, 前端]
 
 当我们参考CSS规范时，就会发现每个属性中都指出了 Inherited的值，即是否可继承。这决定了当你还没有为元素的属性指定值时该如何计算值。今天我们就大概的说说CSS中的继承属性与非继承属性。
 
-# 继承属性(inherited property)
+# 1. 继承属性(inherited property)
 当元素的一个继承属性没有指定值时，则取父元素的同属性的计算值。只有文档根元素取该属性的概述中给定的初始值。下面我们举一个简单的例子:
 <!-- more -->
 
@@ -47,7 +47,7 @@ HTML:
 
 [参考地址](https://www.w3.org/TR/CSS21/propidx.html)
 
-# 非继承属性(reset property)
+# 2. 非继承属性(reset property)
 当元素的一个非继承属性没有指定值时，则取属性的初始值。
 
 典型例子: border属性
