@@ -3,7 +3,7 @@ title: CSS 中的继承属性与非继承属性
 urlname: css-inherited-properties-and-non-inherited-properties
 date: 2018-07-13 18:16:03
 categories: 技术研究
-tags: [CSS3, HTML5]
+tags: [CSS3, HTML5, 前端]
 ---
 
 当我们参考CSS规范时，就会发现每个属性中都指出了 Inherited的值，即是否可继承。这决定了当你还没有为元素的属性指定值时该如何计算值。今天我们就大概的说说CSS中的继承属性与非继承属性。

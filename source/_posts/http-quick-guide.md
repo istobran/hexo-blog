@@ -1,7 +1,7 @@
 ---
 title: HTTP 面试指南
 date: 2018-07-03 10:34:52
-tags: [HTTP, javascript]
+tags: [HTTP, javascript, 前端]
 urlname: http-quick-guide
 categories: 技术研究
 ---

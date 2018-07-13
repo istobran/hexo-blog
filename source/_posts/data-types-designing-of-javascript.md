@@ -3,7 +3,7 @@ title: 细说 javascript 的数据类型
 date: 2018-06-14 12:00:26
 categories: 技术研究
 urlname: data-types-designing-of-javascript
-tags: [javascript, ECMAScript]
+tags: [javascript, ECMAScript, 前端]
 ---
 
 现在出来写前端有一段时间了，现在来回头看看，当初大学刚学搞前端的时候，为了快速适应新的语言，直接看后面的内容去了，跳过了基本数据类型的介绍，想当然的觉得 javascript 的数据类型应该也跟其他弱类型语言差不了太多，从而忽略了基本数据类型上的细节。最近随着对 js 语言了解和应用的加深，发现 js 的基本数据类型里面真的大有文章，甚至有不少的语言设计缺陷在里面。所以我打算专门写一篇关于基本数据类型的文章，专门来谈谈 js 在基本数据类型上的这些设计和缺陷。
@@ -443,7 +443,7 @@ toString.call(new Dog())   // [object Object]
 
 至于到底为什么会这样子算，可以详细看看[这篇文章](https://github.com/jawil/blog/issues/1)，简单来说就是根据 ECMA 规范的定义，这个运算符会在内部不断的做类型转换。它的转换规则是这样的：
 
-![运算规则图](/images/data-transformation-of-abstract-equality-omparison.jpeg)
+![运算规则图](/images/2018/06/data-transformation-of-abstract-equality-omparison.jpeg)
 
   - null == undefined 为 true，且它俩与所有其他值比较的结果都是false。
   - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型（内部会调用 valueOf 或 toString）

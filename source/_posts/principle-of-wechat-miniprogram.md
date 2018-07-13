@@ -3,7 +3,7 @@ title: 小程序实现原理链接集合
 date: 2018-07-13 15:18:04
 urlname: principle-of-wechat-miniprogram
 categories: 技术研究
-tags: [ECMAScript, javascript, HTML5, 小程序]
+tags: [ECMAScript, javascript, HTML5, 小程序, 前端]
 ---
 
 [小程序实现原理解析](https://cloud.tencent.com/developer/article/1029663)  
