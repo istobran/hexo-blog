@@ -16,3 +16,5 @@ tags: [javascript, 前端, ECMAScript]
 - [JavaScript并发模型与Event Loop](https://blog.kaolafed.com/2017/04/21/JavaScript%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8EEvent%20Loop/)
 - [Event Loop 中的 microtask 与 macrotask](https://juejin.im/entry/5a7864d4f265da4e914b3dc7)
 - [HTML系列：macrotask和microtask](https://zhuanlan.zhihu.com/p/24460769)
+- [聊聊 JavaScript 与浏览器的那些事 - 引擎与线程](https://hijiangtao.github.io/2018/01/08/JavaScript-and-Browser-Engines-with-Threads/)
+- [js引擎与GUI引擎是互斥的](https://www.kancloud.cn/xiak/quanduan/375582)
