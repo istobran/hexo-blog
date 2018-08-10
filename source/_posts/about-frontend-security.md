@@ -8,7 +8,7 @@ tags: [前端, javascript, ECMAScript]
 
 转自：[https://cloud.tencent.com/developer/article/1136202](https://cloud.tencent.com/developer/article/1136202)
 
-## 安全问题的分类
+# 安全问题的分类
 
 ### 按照所发生的区域分类
 - 后端安全问题：所有发生在后端服务器、应用、服务当中的安全问题
@@ -39,7 +39,9 @@ tags: [前端, javascript, ECMAScript]
 - 通过src属性加载的资源，浏览器限制了javascript的权限，使其不能读、写返回的内容
 
 # 三大前端安全问题
+
 ## 1、跨站脚本攻击（XSS）
+
 ### 定义
 > 英文全称：Cross Site Script，XSS攻击，通常指黑客通过“HTML注入”篡改了网页，插入了恶意的脚本，从而在用户浏览网页时，控制用户浏览器的一种攻击
  
