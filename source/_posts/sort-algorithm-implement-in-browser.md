@@ -14,6 +14,7 @@ tags: [前端, javascript, ECMAScript]
     2、用一种直观的方式展示 Array.prototype.sort 的时间复杂度，看看它有多快？  
 
     3、实际开发中要注意的问题  
+<!--more-->
 
 # `Array.prototype.sort` 各浏览器的算法实现
 [ECMAScript 5.1](http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11)
