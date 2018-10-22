@@ -209,6 +209,8 @@ PS：这里端口状态“未标记”(untagged)，即该端口作为本VLAN成�
 
 由于新增的 eth0.3 没有配置 MAC 地址，所以新增接口会沿用 eth0 的 MAC 地址，导致 MAC 地址冲突，所以这里还要加一个步骤，就是给 eth0.3 配置 MAC 地址  
 
+PS：可在命令行中输入 `ip a show` 查看本地的所有 MAC 地址
+
 ssh 进入路由器
 ```bash
 ssh root@192.168.1.1
