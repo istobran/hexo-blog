@@ -446,8 +446,9 @@ toString.call(new Dog())   // [object Object]
 ![运算规则图](/images/2018/06/data-transformation-of-abstract-equality-omparison.jpeg)
 
   - null == undefined 为 true，且它俩与所有其他值比较的结果都是false。
-  - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型（内部会调用 valueOf 或 toString）
+  - Object 类型在与 Boolean/String/Number 进行运算时，会先调用 ToPrimitive 函数转换为原始类型（内部会尝试调用 `valueOf()` 方法，如果得到的结果不是基本数据类型，那再调用 `toString()` 方法）
   - String 类型与 Boolean 类型进行运算时，两边都会先调用 ToNumber 函数转换为 Number 类型
   - Number 与 String/Boolean 类型进行运算时，String/Boolean 类型的一方会先调用 ToNumber 函数转换为 Number 类型
+  - 数值 NaN 与任何值都不相等，包括 NaN 本身也不相等（[IEEE-754浮点数标准](https://en.wikipedia.org/wiki/IEEE_754)定义的）
 
 通过这个转换规则就可以很容易解释前面为什么 `[] == ![]` 的结果为 true 了
