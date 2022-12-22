@@ -2,7 +2,7 @@
 title: 三角洲特种部队 WAC 脚本帮助
 tags: [三角洲特种部队, 联合行动, 地图制作]
 date: 2022-12-22 11:58:29
-urlname: novalogic-wac-script-api-reference
+urlname: novalogic-wac-script-help
 categories: 游戏
 ---
 
