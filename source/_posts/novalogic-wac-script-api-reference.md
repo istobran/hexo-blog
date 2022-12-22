@@ -7,7 +7,7 @@ categories: 游戏
 ---
 
 以前网易博客的旧文重发，本文收集了多篇来自多家论坛上的 WAC 脚本说明
-主要适用于联合行动 Joint Operations 和三角洲特种部队：极限版 Delta Force:Xtreme 之后的版本
+主要适用于联合行动 Joint Operations 和三角洲特种部队：极限版 Delta Force: Xtreme 之后的版本
 三角洲特种部队：黑鹰坠落 Delta force: Black Hawk Down 及之前版本会有部分功能不可用，需自行排查
 
 <!--more-->
@@ -27,66 +27,66 @@ categories: 游戏
 ;
 ;---WAC LANGUAGE COMMANDS
 ;nestable flow control
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IF THEN ELSE ENDIF
+;       IF THEN ELSE ENDIF
 ;boolean logic
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND OR XOR
+;       AND OR XOR
 ;function modifier
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; NOT
+;       NOT
 ;comments
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; /
+;       ; /
 ;
 ;Syntax - parens optional, line returns and tabbing optional
 ;
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if trigger1(params) and trigger2(params) then
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event1(params)
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; event2(params)
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif
+;       if trigger1(params) and trigger2(params) then
+;               event1(params)
+;               event2(params)
+;       endif
 ;
 ;Example
 ;
-;&nbsp;&nbsp; I want to open doors in group 12 the first time I enter area 1501
+;   I want to open doors in group 12 the first time I enter area 1501
 ;
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if location(1501) and never() then
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; opendoors(12)
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; endif
+;       if location(1501) and never() then
+;               opendoors(12)
+;       endif
 ;
 
 ;---VARIABLES &amp; IMMEDIATES (a variable can always be used as an immediate)
-;"STRING"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate string value
-;#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate decimal number
-;anim_move&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate equate from ADM file
-;ammo_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate ammo name (ex. ammo2tgt ammo_rocket 1)
-;fx_fxname&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate effect name (ex. fxrain fx_effect_lightning)
-;effect_name&nbsp;&nbsp;&nbsp; immediate effect name (ex. fxrain effect_lightning)
-;SS_SoundSet&nbsp;&nbsp;&nbsp; immediate soundset name
-;sSoundSet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate soundset name (alternate syntax)
-;face_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; immediate face name (ex. ssnface 45 face_happy)
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_normal
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_happy
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_sad
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_smirk
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_angry
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_surprise
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_disgust
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_fear
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; face_aggressive
+;"STRING"       immediate string value
+;#              immediate decimal number
+;anim_move      immediate equate from ADM file
+;ammo_name      immediate ammo name (ex. ammo2tgt ammo_rocket 1)
+;fx_fxname      immediate effect name (ex. fxrain fx_effect_lightning)
+;effect_name    immediate effect name (ex. fxrain effect_lightning)
+;SS_SoundSet    immediate soundset name
+;sSoundSet      immediate soundset name (alternate syntax)
+;face_name      immediate face name (ex. ssnface 45 face_happy)
+;                       face_normal
+;                       face_happy
+;                       face_sad
+;                       face_smirk
+;                       face_angry
+;                       face_surprise
+;                       face_disgust
+;                       face_fear
+;                       face_aggressive
 ;
-;V#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V0 to v511 game variables, cleared at start of mission
-;G#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; G0 to vG11 global variables, not cleared during link
-;M#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Music Script Variable
-;result&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; current return/accumulator value (mostly for debug)
-;ticks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; number of seconds into game
-;GameOver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true is game is over
-;Win&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if blue team won
-;Lose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if red team won
-;wind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; used by SWING, FLICKER, and particle wind2
-;health&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player's health/hp value
-;mana&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player's mana
-;neartype&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the type of the nearest enemy (from items.def dialog)
-;neardist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the distance to the nearest organic
-;nearmove&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the anim move of the nearest organic (setable)
-;nearid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the unique dcb/id of the nearest organic
-;neartid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the id of the organic's target or 0 if no target
+;V#             V0 to v511 game variables, cleared at start of mission
+;G#             G0 to vG11 global variables, not cleared during link
+;M#             Music Script Variable
+;result         current return/accumulator value (mostly for debug)
+;ticks          number of seconds into game
+;GameOver       true is game is over
+;Win            true if blue team won
+;Lose           true if red team won
+;wind           used by SWING, FLICKER, and particle wind2
+;health         player's health/hp value
+;mana           player's mana
+;neartype       the type of the nearest enemy (from items.def dialog)
+;neardist       the distance to the nearest organic
+;nearmove       the anim move of the nearest organic (setable)
+;nearid         the unique dcb/id of the nearest organic
+;neartid        the id of the organic's target or 0 if no target
 ;nearblind
 ;nearflying
 ;nearguard
@@ -95,13 +95,13 @@ categories: 游戏
 ;nearGroup
 ;nearHP
 
-;deadDist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the nearest corpse info
+;deadDist       the nearest corpse info
 ;DdeadType
 ;ddeadSSN
 ;DdeadMove
 ;DdeadGroup
 
-;bbadDist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the nearest badguy info (team 2)
+;bbadDist        the nearest badguy info (team 2)
 ;bbadType
 ;bbadSSN
 ;bbadMove
@@ -111,108 +111,108 @@ categories: 游戏
 
 
 ;---TRIGGERS (# param can be number or variable)
-;never()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if current IF has never fired, for one time only events
-;elapse(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if past # seconds since current IF activated
+;never()        true if current IF has never fired, for one time only events
+;elapse(#)      true if past # seconds since current IF activated
 ;
 ;-IF Link (these commands fire once only for every fire of linked IF)
-;previous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if previous (same nesting level) IF fired
-;chain(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if previous (same nesting level) IF fired # seconds ago
-;link(#1,#2)&nbsp;&nbsp;&nbsp; true if IF #1 away from current IF fired #2 seconds ago
+;previous       true if previous (same nesting level) IF fired
+;chain(#)       true if previous (same nesting level) IF fired # seconds ago
+;link(#1,#2)    true if IF #1 away from current IF fired #2 seconds ago
 ;
 ;-Game Time (seconds of WAC script running)
-;past(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if past # seconds into game, keeps firing after #
-;before(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if before # seconds into game.&nbsp; keeps firing before #
-;ontick(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if ontick #, only fires once
+;past(#)        true if past # seconds into game, keeps firing after #
+;before(#)      true if before # seconds into game.  keeps firing before #
+;ontick(#)      true if ontick #, only fires once
 ;
-;random(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; randomly true 1 in # times, sets RND for additional tests
-;location(#)&nbsp;&nbsp;&nbsp; true if you are at that music location
-;area(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if within MED area without checking vertical
-;area3D(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if within MED 3D area
-;outside()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if you are not in a blink box
-;waveready()&nbsp;&nbsp;&nbsp; true if no talking going on
-;groupdead(#)&nbsp;&nbsp; true if entire group is dead
-;groupalive(#)&nbsp; true if anyone in group is alive
-;ssnwounded(#)&nbsp; true if ssn is wounded
-;ssndead(#)&nbsp;&nbsp;&nbsp;&nbsp; true if ssn is dead
-;ssnalive(#)&nbsp;&nbsp;&nbsp; true if ssn is alive
-;ssnride(#)&nbsp;&nbsp;&nbsp;&nbsp; true if any organic is standing on SSN
-;ssnonssn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if SSN is standing on SSN
-;ssnnearssn&nbsp;&nbsp;&nbsp;&nbsp; true if SSN is near SSN within dist
-;ssnlosssn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if SSN is near SSN within dist and has LOS
-;ssnseesssn&nbsp;&nbsp;&nbsp;&nbsp; true if SSN is near SSN within dist and can see it
-;meride(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if player is standing on SSN
-;meattached(#)&nbsp; true if player is attached to SSN
-;medrive(#)&nbsp;&nbsp;&nbsp;&nbsp; true if player is driving SSN
-;meongun(#)&nbsp;&nbsp;&nbsp;&nbsp; true if player is on emplaced weapon on SSN
-;ssnloc(#,#)&nbsp;&nbsp;&nbsp; true if vehicle or person is in music location
-;ssnarea(#,#)&nbsp;&nbsp; true if vehicle or person is in 2D med area #
+;random(#)      randomly true 1 in # times, sets RND for additional tests
+;location(#)    true if you are at that music location
+;area(#)        true if within MED area without checking vertical
+;area3D(#)      true if within MED 3D area
+;outside()      true if you are not in a blink box
+;waveready()    true if no talking going on
+;groupdead(#)   true if entire group is dead
+;groupalive(#)  true if anyone in group is alive
+;ssnwounded(#)  true if ssn is wounded
+;ssndead(#)     true if ssn is dead
+;ssnalive(#)    true if ssn is alive
+;ssnride(#)     true if any organic is standing on SSN
+;ssnonssn       true if SSN is standing on SSN
+;ssnnearssn     true if SSN is near SSN within dist
+;ssnlosssn      true if SSN is near SSN within dist and has LOS
+;ssnseesssn     true if SSN is near SSN within dist and can see it
+;meride(#)      true if player is standing on SSN
+;meattached(#)  true if player is attached to SSN
+;medrive(#)     true if player is driving SSN
+;meongun(#)     true if player is on emplaced weapon on SSN
+;ssnloc(#,#)    true if vehicle or person is in music location
+;ssnarea(#,#)   true if vehicle or person is in 2D med area #
 ;ssnarea3D(#,#) true if vehicle or person is in 3D med area #
-;dooropen(#)&nbsp;&nbsp;&nbsp; true if group # has door open
-;event(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if med event has triggered
-;squadevent(#)&nbsp; true if squad event is in que, sets squadSSN to talker
+;dooropen(#)    true if group # has door open
+;event(#)       true if med event has triggered
+;squadevent(#)  true if squad event is in que, sets squadSSN to talker
 ;playerfired(#) true if player has pressed fire and has slot # selected
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1=knife, 2=small arm, 3=main weapon, ect..
+;                    1=knife, 2=small arm, 3=main weapon, ect..
 ;
 ;---VARIABLE COMPARE
-;eq(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #==#
-;ne(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #!=#
-;lt(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #&lt;#
-;gt(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #&gt;#
-;le(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #&lt;=#
-;ge(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #&gt;=#
-;true(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #!=0
-;false(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true if #==0
+;eq(#,#)        true if #==#
+;ne(#,#)        true if #!=#
+;lt(#,#)        true if #&lt;#
+;gt(#,#)        true if #&gt;#
+;le(#,#)        true if #&lt;=#
+;ge(#,#)        true if #&gt;=#
+;true(#)        true if #!=0
+;false(#)       true if #==0
 ;
 ;---VARIABLE MODIFY
-;set(var,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set var to #
-;add(var,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add # to var
-;sub(var,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subtract # from var, clamp at 0
-;inc(var)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; add 1 to var
-;dec(var)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subtract 1 from var, clamp at 0
+;set(var,#)             set var to #
+;add(var,#)             add # to var
+;sub(var,#)             subtract # from var, clamp at 0
+;inc(var)               add 1 to var
+;dec(var)               subtract 1 from var, clamp at 0
 
 ;---EVENTS (# param can be number or variable)
-;squadclear&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clears squadevent selected by squadevent(#)
-;forceanim(anim)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; forces all organics into anim slot (debug only)
-;report("text")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pop-up debug report window
-;report#("text",#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pop-up debug report window with number
-;text("text")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output text to chat - right side
-;text#("text",#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output text to chat w/# - right side
-;consol("text")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output text to consol - left side
-;consol#("text",#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output text to consol w/# - left side
+;squadclear             clears squadevent selected by squadevent(#)
+;forceanim(anim)        forces all organics into anim slot (debug only)
+;report("text")         pop-up debug report window
+;report#("text",#)      pop-up debug report window with number
+;text("text")           output text to chat - right side
+;text#("text",#)        output text to chat w/# - right side
+;consol("text")         output text to consol - left side
+;consol#("text",#)      output text to consol w/# - left side
 ;
-;flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; produce a flash of lightning &amp; thunder
-;farflash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; produce a far away flash of lightning &amp; thunder
-;quake(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; earthquake for # 10th of a seconds
+;flash                  produce a flash of lightning &amp; thunder
+;farflash               produce a far away flash of lightning &amp; thunder
+;quake(#)               earthquake for # 10th of a seconds
 ;
-;colorfade(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; seconds for color to transition (zero is normal)
-;sun(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets sun rgb&nbsp;&nbsp;&nbsp; ENV override
-;sky(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets sky rgb
-;ground(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets ground rgb
-;ceiling(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets ceiling rgb
-;floor(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets floor rgb (inside ground)
-;lightning(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets the color of the lightning
-;cloud(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets the cloud color
-;gain(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets the brightness of the whole scene
+;colorfade(#)           seconds for color to transition (zero is normal)
+;sun(#,#,#)             sets sun rgb    ENV override
+;sky(#,#,#)             sets sky rgb
+;ground(#,#,#)          sets ground rgb
+;ceiling(#,#,#)         sets ceiling rgb
+;floor(#,#,#)           sets floor rgb (inside ground)
+;lightning(#,#,#)       sets the color of the lightning
+;cloud(#,#,#)           sets the cloud color
+;gain(#,#,#)            sets the brightness of the whole scene
 ;
-;fogcolor(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set fogcolor to R,G,B, changes at color fade rate
-;fog(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; same as fogcolor
-;skyfogcolor(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp; set skyfogcolor to R,G,B
-;skyfog(#,#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; same as skyfogcolor
-;fogtype(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set fog type 0=fog, 1=haze, 2=haze wall, 3=fog wall
-;fogdist(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets fogdist to # meters
-;movefog(#,#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; move fogdist to # meters over # seconds
-;skyspeed(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets the sky movement speed
-;skyheight(#)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sets the height of the sky
+;fogcolor(#,#,#)        set fogcolor to R,G,B, changes at color fade rate
+;fog(#,#,#)             same as fogcolor
+;skyfogcolor(#,#,#)     set skyfogcolor to R,G,B
+;skyfog(#,#,#)          same as skyfogcolor
+;fogtype(#)             set fog type 0=fog, 1=haze, 2=haze wall, 3=fog wall
+;fogdist(#)             sets fogdist to # meters
+;movefog(#,#)           move fogdist to # meters over # seconds
+;skyspeed(#)            sets the sky movement speed
+;skyheight(#)           sets the height of the sky
 ;
-;sound(sSSNAME, dist, head)&nbsp; plays soundset at distance(meters) and heading(bangle)
+;sound(sSSNAME, dist, head)  plays soundset at distance(meters) and heading(bangle)
 ;
 ;nearwave("wave.wav", dist) plays wave file from the mouth of the nearest enemy with max dist to be heard
-;nearanim(anim_move)&nbsp;&nbsp;&nbsp; sets the nearest enemy to ADM move slot
+;nearanim(anim_move)    sets the nearest enemy to ADM move slot
 ;
 ;SSNwave(ssn, "wave.wav", dist) plays wave file from the mouth of the ssn with max dist to be heard
 ;wave("wave.wav", dist) plays wave file from mouth of player
-;SSNanim(ssn, anim_move)&nbsp;&nbsp;&nbsp; sets the ssn to ADM move slot
-;SSNradio(ssn, "wave.wav")&nbsp; sets the ssn to talk on radio
+;SSNanim(ssn, anim_move)    sets the ssn to ADM move slot
+;SSNradio(ssn, "wave.wav")  sets the ssn to talk on radio
 ;
 ;SSNmax(ssn, maxengage) set max engage distance
 ;SSNmin(ssn, minengage) set min engage distance
@@ -222,34 +222,34 @@ categories: 游戏
 ;GroupMin(group, minengage) set min engage distance
 ;GroupAtt(group, maxattack) set max attack distance
 ;GroupSpawn(group, spawn count) set the spawn count, 0=don't respawn
-;remove(grp)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; remove group # without a trace
-;kill(grp)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kill group #
-;removeSSN(ssn)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; remove SSN # without a trace
-;killSSN(ssn)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; kill SSN #
-;teleport(grp,tgt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; teleport group # to target #
-;telessn(ssn, tgt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; teleport SSN # to target #
-;targetfx(tgt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; create med particle fx at target #
-;sound2tgt(ss,tgt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; create ssoundset at target # (ex. sound2tgt sSoundSet 1)
-;ss2ssn(ss,ssn)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; create ssoundset at center of ssn
-;ammo2tgt(ammo,tgt)&nbsp;&nbsp;&nbsp;&nbsp; create ammo # at target # (ex. ammo2tgt ammo_rocket 1)
-;fx2tgt(fx,tgt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; create fx # at target # (ex. fx2tgt effect_lightning 1)
-;opendoors(group)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; open doors in group #
-;closedoors(group)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; close doors in group #
-;SSNtoWP(ssn, wp)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; redirect SSN to WP list
-;GtoWP(group, wp)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; redirect Group to WP list
-;ammorain(ammo)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rain down ammo # somewhere near player
-;ammoarea(ammo, area)&nbsp;&nbsp; rain down ammo # somewhere inside area #
-;fxrain(fx)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rain down effect # somewhere near player
-;ssncspd(ssn,speed)&nbsp;&nbsp;&nbsp;&nbsp; set ssn to combat speed of #
-;ssnpspd(ssn,speed)&nbsp;&nbsp;&nbsp;&nbsp; set ssn to patrol speed of #
-;ssnuse(ssn)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; snap ssn to emplaced weapon if within 3 meters
-;ssnrelease(ssn)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; remove ssn from emplaced weapon
-;ssn2ssn(ssn, ssn)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; have ssn goto ssn and try to snap to emplaced
-;ssnface(ssn, face)&nbsp;&nbsp;&nbsp;&nbsp; set face expression of ssn
-;ssnguard(ssn, #)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set ssn to guard 1=ON, 0=Off
-;ssnturn(ssn, heading)&nbsp; turn ssn to heading 0-360
-;ssnhp(ssn, hp)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set ssn's hitpoints to hp
-;blockfire(wpnkey, #)&nbsp;&nbsp; blockfiring of weapons under key, 0=fire, 1=block
+;remove(grp)            remove group # without a trace
+;kill(grp)              kill group #
+;removeSSN(ssn)         remove SSN # without a trace
+;killSSN(ssn)           kill SSN #
+;teleport(grp,tgt)      teleport group # to target #
+;telessn(ssn, tgt)      teleport SSN # to target #
+;targetfx(tgt)          create med particle fx at target #
+;sound2tgt(ss,tgt)      create ssoundset at target # (ex. sound2tgt sSoundSet 1)
+;ss2ssn(ss,ssn)         create ssoundset at center of ssn
+;ammo2tgt(ammo,tgt)     create ammo # at target # (ex. ammo2tgt ammo_rocket 1)
+;fx2tgt(fx,tgt)         create fx # at target # (ex. fx2tgt effect_lightning 1)
+;opendoors(group)       open doors in group #
+;closedoors(group)      close doors in group #
+;SSNtoWP(ssn, wp)       redirect SSN to WP list
+;GtoWP(group, wp)       redirect Group to WP list
+;ammorain(ammo)         rain down ammo # somewhere near player
+;ammoarea(ammo, area)   rain down ammo # somewhere inside area #
+;fxrain(fx)             rain down effect # somewhere near player
+;ssncspd(ssn,speed)     set ssn to combat speed of #
+;ssnpspd(ssn,speed)     set ssn to patrol speed of #
+;ssnuse(ssn)            snap ssn to emplaced weapon if within 3 meters
+;ssnrelease(ssn)        remove ssn from emplaced weapon
+;ssn2ssn(ssn, ssn)      have ssn goto ssn and try to snap to emplaced
+;ssnface(ssn, face)     set face expression of ssn
+;ssnguard(ssn, #)       set ssn to guard 1=ON, 0=Off
+;ssnturn(ssn, heading)  turn ssn to heading 0-360
+;ssnhp(ssn, hp)         set ssn's hitpoints to hp
+;blockfire(wpnkey, #)   blockfiring of weapons under key, 0=fire, 1=block
 
 ///////////////////WAC HELP 2（NILE）///////////////////
 
@@ -499,7 +499,7 @@ categories: 游戏
 // false (number) 
 
 ///////////////////WAC HELP 3///////////////////
-&nbsp;;WAC Text in Color
+ ;WAC Text in Color
 ;
 ;This WAC code was supplied by Bubbachuk~{PG}~
 ;
