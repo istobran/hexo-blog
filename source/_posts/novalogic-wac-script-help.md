@@ -51,7 +51,7 @@ categories: 游戏
 ;       endif
 ;
 
-;---VARIABLES &amp; IMMEDIATES (a variable can always be used as an immediate)
+;---VARIABLES & IMMEDIATES (a variable can always be used as an immediate)
 ;"STRING"       immediate string value
 ;#              immediate decimal number
 ;anim_move      immediate equate from ADM file
@@ -156,10 +156,10 @@ categories: 游戏
 ;---VARIABLE COMPARE
 ;eq(#,#)        true if #==#
 ;ne(#,#)        true if #!=#
-;lt(#,#)        true if #&lt;#
-;gt(#,#)        true if #&gt;#
-;le(#,#)        true if #&lt;=#
-;ge(#,#)        true if #&gt;=#
+;lt(#,#)        true if #<#
+;gt(#,#)        true if #>#
+;le(#,#)        true if #<=#
+;ge(#,#)        true if #>=#
 ;true(#)        true if #!=0
 ;false(#)       true if #==0
 ;
@@ -180,8 +180,8 @@ categories: 游戏
 ;consol("text")         output text to consol - left side
 ;consol#("text",#)      output text to consol w/# - left side
 ;
-;flash                  produce a flash of lightning &amp; thunder
-;farflash               produce a far away flash of lightning &amp; thunder
+;flash                  produce a flash of lightning & thunder
+;farflash               produce a far away flash of lightning & thunder
 ;quake(#)               earthquake for # 10th of a seconds
 ;
 ;colorfade(#)           seconds for color to transition (zero is normal)
@@ -253,7 +253,7 @@ categories: 游戏
 
 ///////////////////WAC HELP 2（NILE）///////////////////
 
-//PLOOP -&gt; Real Player loop
+//PLOOP -> Real Player loop
 
 //- PLOOP actions(player) END
 
@@ -266,7 +266,7 @@ categories: 游戏
 
 //---------------------------------------------------
 
-//GLOOP -&gt; Named Group Loop
+//GLOOP -> Named Group Loop
 
 //don't use group commands !
 
@@ -281,7 +281,7 @@ categories: 游戏
 
 //------------------------------------------------------
 
-//ENTER -&gt; to handle like 'and never()', but fire again was con. false
+//ENTER -> to handle like 'and never()', but fire again was con. false
 
 //CODEIF trigger ENTER // triggers on first true
 //actions
@@ -290,7 +290,7 @@ categories: 游戏
 
 //------------------------------------------------------
 
-//LEAVE -&gt; fired if condition no more true
+//LEAVE -> fired if condition no more true
 
 //CODEIF trigger LEAVE // triggers after last true
 //actions
@@ -299,7 +299,7 @@ categories: 游戏
 
 //-------------------------------------------------------
 
-//IFNAME -&gt; give a condition a Name
+//IFNAME -> give a condition a Name
 
 
 //CODEIF [ifname] triggers THEN // optional named if
@@ -330,10 +330,10 @@ categories: 游戏
 
 // WAC Logic and Math (tests for inside IF statement)
 // Arithmatics ()+-*/^
-// Booleans AND OR NOT &lt; &gt; &lt;= &gt;= == !=
-// Example: IF V1&lt;12 THEN
-// Example: IF V1&lt;12 AND V2&lt;12 THEN
-// Note: this compiles to IF (V1&lt;12) AND (V2&lt;12) THEN
+// Booleans AND OR NOT < > <= >= == !=
+// Example: IF V1<12 THEN
+// Example: IF V1<12 AND V2<12 THEN
+// Note: this compiles to IF (V1<12) AND (V2<12) THEN
 
 // WAC Assignment Var = Value
 // Example: V1 = 12
@@ -505,13 +505,13 @@ categories: 游戏
 ;
 ;Here is a short list of the color codes you can use to change
 ;the color of the WAC scripts: The script has to be enclosed
-;between right and left arrows, i.e. &lt;#####&gt; and inserted
+;between right and left arrows, i.e. <#####> and inserted
 ;before the line of text in the consol or text displays, i.e.
 ;
 ;if never() then
-;consol("&lt;#####&gt;Insert color code before actual text. Characters")
-;text("&lt;#####&gt;in the code count in the character count allowed")
-;text("&lt;#####&gt;for each line.")
+;consol("<#####>Insert color code before actual text. Characters")
+;text("<#####>in the code count in the character count allowed")
+;text("<#####>for each line.")
 ;endif
 ;
 ;cfff500 or co01 = Yellow
@@ -643,7 +643,7 @@ categories: 游戏
 ;fx2tgt(FX,TARGET)
 ;ammorain(AMMO)
 ;ammoarea(AMMO,AREA)
-;fxrain(FX)&lt;/WAC&gt;
+;fxrain(FX)</WAC>
 ;sound2tgt(SOUNDSET,TARGET)
 ;flash()
 ;farflash()
